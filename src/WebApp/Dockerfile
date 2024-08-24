@@ -2,12 +2,13 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS stage
 
 WORKDIR /app 
 
-ENV NODE_VERSION=20.17.0
+ENV NODE_VERSION=20.x
 
 RUN apt-get -y update \
     && apt-get install -y curl \
     && curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | sh - \ 
-    && apt-get install -y nodejs 
+    && apt-get install -y nodejs \
+    && apt-get clean
 
 RUN npm install --global gulp-cli
 

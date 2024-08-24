@@ -11,7 +11,7 @@ COPY . .
 RUN donet publish -c Release -o out
 
 
-FROM mcr.microsoft.com/donet/sdk:8.0
+FROM mcr.microsoft.com/dotnet/sdk:8.0
 
 WORKDIR /app 
 

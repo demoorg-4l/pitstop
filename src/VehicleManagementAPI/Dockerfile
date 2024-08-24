@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS stage
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS stage
 
 WORKDIR /app 
 
@@ -11,7 +11,7 @@ COPY . .
 RUN dotnet publish -c Release -o out /app/*.csproj
 
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0
+FROM mcr.microsoft.com/dotnet/sdk:7.0
 
 WORKDIR /app 
 

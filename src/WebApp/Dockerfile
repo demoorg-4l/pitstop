@@ -10,15 +10,16 @@ RUN apt-get -y update \
     && apt-get install -y nodejs \
     && apt-get clean
 
-RUN npm install --global gulp-cli
 
 COPY *.csproj ./
 
 RUN dotnet restore
 
-COPY . .
+COPY . ./
 
 RUN npm install
+
+RUN npm install --global gulp-cli
 
 RUN gulp default
 

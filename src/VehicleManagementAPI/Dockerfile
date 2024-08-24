@@ -1,23 +1,24 @@
-FROM pitstop-dotnet-sdk-base:1.0 AS build-env
-WORKDIR /app
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS stage
 
-# Copy necessary files and restore as distinct layer
-COPY *.csproj ./
+WORKDIR /app 
+
+COPY *.csproj .
+
 RUN dotnet restore
 
-# Copy everything else and build
-COPY . ./
-RUN dotnet publish -c Release -o out
+COPY . .
 
-# Build runtime image
-FROM pitstop-dotnet-aspnet-base:1.0
-WORKDIR /app
-COPY --from=build-env /app/out .
+RUN donet publish -c Release -o out
 
-# Expose ports
-EXPOSE 5000/tcp
+
+FROM mcr.microsoft.com/donet/sdk:8.0
+
+WORKDIR /app 
+
+COPY --from=stage /app/out .
+
+EXPOSE 5000
+
 ENV ASPNETCORE_URLS http://*:5000
-HEALTHCHECK --interval=30s --timeout=3s --retries=1 CMD curl --silent --fail http://localhost:5000/hc || exit 1
 
-# Start
-ENTRYPOINT ["dotnet", "Pitstop.VehicleManagementAPI.dll"]
+ENTRYPOINT [ "donet" , "Pitstop.VehicleManagementAPI.dll" ]

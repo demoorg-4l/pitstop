@@ -21,7 +21,7 @@ RUN npm install
 
 RUN npm install --global gulp-cli
 
-RUN gulp default
+RUN gulp default --verbose || { echo 'Gulp task failed' ; exit 1; }
 
 
 RUN dotnet publish -c Release -o out

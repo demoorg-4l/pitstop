@@ -21,4 +21,7 @@ EXPOSE 5000
 
 ENV ASPNETCORE_URLS http://*:5000
 
+HEALTHCHECK --interval=30s --timeout=3s --retries=1 CMD curl --silent --fail http://localhost:5000/hc || exit 1
+
+
 ENTRYPOINT [ "donet" , "Pitstop.VehicleManagementAPI.dll" ]

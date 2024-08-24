@@ -1,36 +1,37 @@
-FROM pitstop-dotnet-sdk-base:1.0 AS build-env
-WORKDIR /app
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS stage
 
-# Install node
-ENV NODE_VERSION=20.x
+WORKDIR /app 
+
+ENV NODE_VERSION=20.17.0
+
 RUN apt-get -y update \
     && apt-get install -y curl \
     && curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | sh - \ 
-    && apt-get install -y nodejs \
-    && apt-get clean
+    && apt-get install -y nodejs 
 
-# Install gulp
 RUN npm install --global gulp-cli
 
-# Copy necessary files and restore as distinct layer
 COPY *.csproj ./
+
 RUN dotnet restore
 
-# Copy everything else and build
-COPY . ./
+COPY . .
+
 RUN npm install
+
 RUN gulp default
+
+
 RUN dotnet publish -c Release -o out
 
-# Build runtime image
-FROM pitstop-dotnet-aspnet-base:1.0
-WORKDIR /app
-COPY --from=build-env /app/out .
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 
-# Expose ports
-EXPOSE 7005/tcp
+WORKDIR /app 
+
+COPY --from=stage /app/out .
+
+EXPOSE 7005
+
 ENV ASPNETCORE_URLS http://*:7005
-HEALTHCHECK --interval=30s --timeout=3s --retries=1 CMD curl --silent --fail http://localhost:7005/hc || exit 1
 
-# Start
 ENTRYPOINT ["dotnet", "Pitstop.WebApp.dll"]

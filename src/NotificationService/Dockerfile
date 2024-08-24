@@ -1,18 +1,19 @@
-FROM pitstop-dotnet-sdk-base:1.0 AS build-env
-WORKDIR /app
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS stage 
 
-# Copy necessary files and restore as distinct layer
-COPY *.csproj ./
+WORKDIR /app 
+
+COPY *.csproj .
+
 RUN dotnet restore
 
-# Copy everything else and build
-COPY . ./
+COPY . .
+
 RUN dotnet publish -c Release -o out
 
-# Build runtime image
-FROM pitstop-dotnet-runtime-base:1.0
-WORKDIR /app
-COPY --from=build-env /app/out .
+FROM mcr.microsoft.com/dotnet/sdk:8.0
 
-# Start
+WORKDIR /app
+
+COPY --from=stage /app/out .
+
 ENTRYPOINT ["dotnet", "Pitstop.NotificationService.dll"]

@@ -1,0 +1,172 @@
+{
+  "format": 1,
+  "restore": {
+    "d:\\pitstop_proj\\pitstop\\src\\CustomerManagementAPI\\CustomerManagementAPI.csproj": {}
+  },
+  "projects": {
+    "d:\\pitstop_proj\\pitstop\\src\\CustomerManagementAPI\\CustomerManagementAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "d:\\pitstop_proj\\pitstop\\src\\CustomerManagementAPI\\CustomerManagementAPI.csproj",
+        "projectName": "Pitstop.CustomerManagementAPI",
+        "projectPath": "d:\\pitstop_proj\\pitstop\\src\\CustomerManagementAPI\\CustomerManagementAPI.csproj",
+        "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+        "outputPath": "d:\\pitstop_proj\\pitstop\\src\\CustomerManagementAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
+        "configFilePaths": [
+          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.HealthChecks": {
+              "target": "Package",
+              "version": "[1.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[8.0.6, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.6, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.6, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )",
+              "versionCentrallyManaged": true
+            },
+            "Pitstop.Infrastructure.Messaging": {
+              "target": "Package",
+              "version": "[5.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.1, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.Enrichers.Environment": {
+              "target": "Package",
+              "version": "[2.3.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[5.0.1, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.Sinks.Seq": {
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "AspNetCore.HealthChecks.SqlServer": "8.0.2",
+            "AutoMapper": "13.0.1",
+            "Dapper": "2.1.44",
+            "Microsoft.AspNetCore.HealthChecks": "1.0.0",
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.6",
+            "Microsoft.EntityFrameworkCore": "8.0.6",
+            "Microsoft.EntityFrameworkCore.Design": "8.0.6",
+            "Microsoft.EntityFrameworkCore.SqlServer": "8.0.6",
+            "Microsoft.EntityFrameworkCore.Tools": "8.0.6",
+            "Microsoft.Extensions.Configuration": "8.0.0",
+            "Microsoft.Extensions.Configuration.CommandLine": "8.0.0",
+            "Microsoft.Extensions.Configuration.EnvironmentVariables": "8.0.0",
+            "Microsoft.Extensions.Configuration.Json": "8.0.0",
+            "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": "8.0.6",
+            "Microsoft.Extensions.Hosting": "8.0.0",
+            "Microsoft.Extensions.Logging.Debug": "8.0.0",
+            "Microsoft.VisualStudio.Web.BrowserLink": "2.2.0",
+            "Pitstop.Infrastructure.Messaging": "5.1.0",
+            "Polly": "8.4.0",
+            "Refit": "7.0.0",
+            "Refit.HttpClientFactory": "7.0.0",
+            "Refit.Newtonsoft.Json": "7.0.0",
+            "Serilog": "4.0.0",
+            "Serilog.AspNetCore": "8.0.1",
+            "Serilog.Enrichers.Environment": "2.3.0",
+            "Serilog.Extensions.Hosting": "8.0.0",
+            "Serilog.Settings.Configuration": "8.0.0",
+            "Serilog.Sinks.Console": "5.0.1",
+            "Serilog.Sinks.Seq": "8.0.0",
+            "Swashbuckle.AspNetCore": "6.6.2",
+            "System.Data.SqlClient": "4.8.6"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

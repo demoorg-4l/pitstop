@@ -1,23 +1,23 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS stage 
+FROM pitstop-dotnet-sdk-base:1.0 AS build-env
+WORKDIR /app
 
-WORKDIR /app 
-
-COPY *.csproj .
-
+# Copy necessary files and restore as distinct layer
+COPY *.csproj ./
 RUN dotnet restore
 
-COPY . .
-
+# Copy everything else and build
+COPY . ./
 RUN dotnet publish -c Release -o out
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 
+# Build runtime image
+FROM pitstop-dotnet-aspnet-base:1.0
+WORKDIR /app
+COPY --from=build-env /app/out .
 
-WORKDIR /app 
-
-COPY --from=stage /app/out .
-
-EXPOSE 5200
-
+# Expose ports
+EXPOSE 5200/tcp
 ENV ASPNETCORE_URLS http://*:5200
+HEALTHCHECK --interval=30s --timeout=3s --retries=1 CMD curl --silent --fail http://localhost:5200/hc || exit 1
 
-ENTRYPOINT [ "dotnet" , "Pitstop.WorkshopManagementAPI.dll" ]
+# Start
+ENTRYPOINT ["dotnet", "Pitstop.WorkshopManagementAPI.dll"]

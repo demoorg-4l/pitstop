@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Infrastructure package for Pitstop sample application that contains helpers for i" +
     "nteracting with the RabbitMQ message-broker used by the application.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("5.1.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("5.1.0+b37b33ea38c0a3fcd9ca14ccb82229dece0222b0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("5.1.0+b086f7cde35ab4363729a2249602f5c5e22d2f66")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pitstop.Infrastructure.Messaging")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pitstop.Infrastructure.Messaging")]
 [assembly: System.Reflection.AssemblyVersionAttribute("5.1.0.0")]
